@@ -3,18 +3,34 @@
 
   <h1 class="h1 mb-4">New bid</h1>
 
-  <div class="grid grid-cols-2 gap-3">
-    <div class="col-span-2 md:col-span-1 p-3 border-2 border-primary rounded-lg">
-      Berlin → Warsaw
-    </div>
-    <div class="col-span-2 md:col-span-1 p-3 border-2 border-neutral-200 rounded-lg">
-      Belfast → Cardiff
-    </div>
-    <div class="col-span-2 md:col-span-1 p-3 border-2 border-neutral-200 rounded-lg">
-      Prague → Brussels
-    </div>
-    <div class="col-span-2 md:col-span-1 p-3 border-2 border-neutral-200 rounded-lg">
-      Amsterdam → Cologne
-    </div>
+  <div class="mb-4 grid grid-cols-2 gap-3">
+    <label class="col-span-2 md:col-span-1 p-3 border-2 rounded-lg
+      has-[:checked]:border-primary has-[:checked]:bg-green-50 has-[:checked]:text-green-800">
+      <input type="radio" name="route" value="berlin-warsaw" class="hidden">
+      Berlin
+      <span class="mx-1">→</span>
+      Warsaw
+    </label>
+    <label class="col-span-2 md:col-span-1 p-3 border-2 rounded-lg
+      has-[:checked]:border-primary has-[:checked]:bg-green-50 has-[:checked]:text-green-800">
+      <input type="radio" name="route" value="berlin-warsaw" class="hidden">
+      Belfast
+      <span class="mx-1">→</span>
+      Cardiff
+    </label>
+    <label class="col-span-2 md:col-span-1 p-3 border-2 rounded-lg
+      has-[:checked]:border-primary has-[:checked]:bg-green-50 has-[:checked]:text-green-800">
+      <input type="radio" name="route" value="berlin-warsaw" class="hidden">
+      Prague
+      <span class="mx-1">→</span>
+      Brussels
+    </label>
+    <label class="col-span-2 md:col-span-1 p-3 border-2 rounded-lg
+      has-[:checked]:border-primary has-[:checked]:bg-green-50 has-[:checked]:text-green-800">
+      <input type="radio" name="route" value="berlin-warsaw" class="hidden">
+      Amsterdam
+      <span class="mx-1">→</span>
+      Cologne
+    </label>
   </div>
 </div>
