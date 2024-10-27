@@ -1,24 +1,25 @@
-# README
+# Loadar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Problem:** A shipper wants to get the best price for the delivery of goods on his delivery routes from his carriers.
 
-Things you may want to cover:
+Create a simple Ruby on Rails app for carriers to submit their prices for the delivery of goods from A to B (see “List of Routes”) with given load types (see “List of Load Types”). Each route has 3 load types, so in total, carriers can submit 12 different prices for each route/load combination.
 
-* Ruby version
+### List of Routes:
 
-* System dependencies
+- Berlin -> Warsaw
+- Belfast -> Cardiff
+- Prague -> Brussels
+- Amsterdam -> Cologne
 
-* Configuration
+### List of Load Types:
 
-* Database creation
+- 5 pallets
+- 10 pallets
+- 26 pallets
 
-* Database initialization
+## App Requirements:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Carriers that bid with their prices on routes/load types should be able to see if their price bid is winning or if they need to lower their price to win the competition.
+- Authentication, login, and user management are not required for the trial Rails app - carriers just need to enter their company name so that their prices are associated with their name.
+- A simple and intuitive UI/UX is important for carriers to submit their prices efficiently and review the results of their bidding process (for example, to see if they are winning or not).
+Please send your Rails app as a .zip archive via email, or share a link to a public GitHub repository containing the Rails app.
