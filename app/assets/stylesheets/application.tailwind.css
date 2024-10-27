@@ -28,6 +28,6 @@
   @apply border-2;
 
   &:focus {
-    @apply outline-none;
+    @apply outline-none border-primary;
   }
 }
