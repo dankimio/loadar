@@ -27,3 +27,11 @@
 .btn {
   @apply font-normal;
 }
+
+.input-bordered {
+  @apply border-2;
+
+  &:focus {
+    @apply outline-none;
+  }
+}
