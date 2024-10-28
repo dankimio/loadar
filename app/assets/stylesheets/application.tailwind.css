@@ -24,6 +24,12 @@
   @apply text-base font-bold;
 }
 
+/* Buttons */
+
+.btn {
+  @apply animate-none;
+}
+
 /* Forms */
 
 .input-bordered {
@@ -54,7 +60,7 @@
 }
 
 .radio-card {
-  @apply p-3 border-2 rounded-lg cursor-pointer font-medium transition;
+  @apply px-4 py-3 border-2 rounded-lg cursor-pointer font-medium transition;
 
   &:has(:checked) {
     @apply border-primary bg-green-50 text-green-900;
