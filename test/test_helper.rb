@@ -13,3 +13,9 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+class ActionDispatch::IntegrationTest
+  def sign_in_company
+    post sessions_url, params: { company_name: "Acme Corporation" }
+  end
+end
