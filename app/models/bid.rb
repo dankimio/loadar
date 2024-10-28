@@ -6,8 +6,10 @@ class Bid < ApplicationRecord
     "amsterdam-cologne" => [ "Amsterdam", "Cologne" ]
   }
 
+  LOADS = [ 5, 10, 26 ]
+
   validates :company_name, presence: true, uniqueness: { scope: [ :route, :load ] }
   validates :route, presence: true, inclusion: { in: ROUTES.keys }
-  validates :load, presence: true
+  validates :load, presence: true, inclusion: { in: LOADS }
   validates :price, presence: true, numericality: { greater_than: 0 }
 end
