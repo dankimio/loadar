@@ -28,9 +28,13 @@
 
   <body class="text-neutral-900 antialiased">
     <div class="max-w-screen-sm p-4 md:p-8 pb-16 mx-auto">
-      <%= link_to new_session_path do %>
-        <%= image_tag "logo.svg", class: "h-12 mb-4" %>
-      <% end %>
+      <div class="mb-6 flex justify-between items-center">
+        <%= link_to new_session_path do %>
+          <%= image_tag "logo.svg", class: "h-12" %>
+        <% end %>
+
+        <%= button_to "Reset data", resets_path, data: { turbo_confirm: "Are you sure?" }, class: "text-sm font-medium text-neutral-300 hover:text-red-600" %>
+      </div>
 
       <%= yield %>
     </div>
