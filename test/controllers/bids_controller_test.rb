@@ -2,7 +2,8 @@ require "test_helper"
 
 class BidsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get bids_new_url
+    sign_in_company
+    get new_bid_url
     assert_response :success
   end
 end
