@@ -45,7 +45,7 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - [x] Show current bid
 - [x] Show if the bid is winning
 - [x] Mobile first
-- [ ] Add tests
+- [x] Add tests
 - [x] Deploy
 - [ ] Add example to README
 - [x] Add instructions to README
