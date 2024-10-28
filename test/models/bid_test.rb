@@ -1,7 +1,11 @@
 require "test_helper"
 
 class BidTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @bid = bids(:one)
+  end
+
+  test "should be valid" do
+    assert @bid.valid?
+  end
 end
