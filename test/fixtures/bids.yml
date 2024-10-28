@@ -2,4 +2,4 @@ one:
   company_name: MyString
   route: berlin-warsaw
   load: 5
-  price: 1
+  price: 999
