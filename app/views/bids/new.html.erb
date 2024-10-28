@@ -12,7 +12,7 @@
 
 <h1 class="h1 mb-6">New bid</h1>
 
-<%= form_with model: @bid do |f| %>
+<%= form_with model: @bid, data: { controller: "auto-submit" } do |f| %>
   <%= f.hidden_field :company_name, value: current_company_name %>
 
   <h2 class="h2 mb-4">Route</h2>
@@ -20,7 +20,9 @@
   <div class="mb-6 grid grid-cols-2 gap-3">
     <% Bid::ROUTES.each do |route, (origin, destination)| %>
       <label class="col-span-2 md:col-span-1 radio-card">
-        <%= f.radio_button :route, route, required: true, class: "opacity-0 fixed pointer-events-auto" %>
+        <%= f.radio_button :route, route,
+          data: { action: "auto-submit#submit" },
+          class: "opacity-0 fixed pointer-events-auto" %>
         <%= origin %>
         <span class="text-neutral-500 mx-1">→</span>
         <%= destination %>
@@ -33,42 +35,48 @@
   <div class="mb-6 grid grid-cols-3 gap-3">
     <% Bid::LOADS.each do |load| %>
       <label class="radio-card">
-        <%= f.radio_button :load, load, required: true, class: "opacity-0 fixed" %>
+        <%= f.radio_button :load, load,
+          data: { action: "auto-submit#submit" },
+          class: "opacity-0 fixed" %>
         <%= pluralize load, "pallet" %>
       </label>
     <% end %>
   </div>
+<% end %>
 
-  <div class="mb-4 flex items-center">
-    <h2 class="h2 mr-3">Bid</h2>
-    <div class="badge badge-lg badge-outline badge-neutral border-neutral-300 text-sm font-medium">
-      Max price: $1,000
-    </div>
-  </div>
-
-  <div class="mb-6 space-y-4">
-    <div class="flex justify-between items-center text-lg">
-      <p>Lowest bid</p>
-      <div>
-        <p class="text-xl font-semibold tabular-nums">$1,000</p>
+<% if @bid.route && @bid.load %>
+  <%= form_with model: @bid do |f| %>
+    <div class="mb-4 flex items-center">
+      <h2 class="h2 mr-3">Bid</h2>
+      <div class="badge badge-lg badge-outline badge-neutral border-neutral-300 text-sm font-medium">
+        Max price: $1,000
       </div>
     </div>
 
-    <div class="flex justify-between items-center text-lg">
-      <div class="flex items-center gap-x-3">
-        <p>Your bid</p>
-
-        <div class="badge badge-lg badge-primary text-sm font-medium">
-          <svg class="size-4 mr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Lowest
+    <div class="mb-6 space-y-4">
+      <div class="flex justify-between items-center text-lg">
+        <p>Lowest bid</p>
+        <div>
+          <p class="text-xl font-semibold tabular-nums">$1,000</p>
         </div>
       </div>
 
-      <p class="text-xl font-semibold tabular-nums">
-        <%= f.number_field :price, placeholder: "0", required: true, class: "text-right text-xl input input-bordered w-28" %>
-      </p>
-    </div>
-  </div>
+      <div class="flex justify-between items-center text-lg">
+        <div class="flex items-center gap-x-3">
+          <p>Your bid</p>
 
-  <%= f.submit "Submit bid", class: "btn btn-primary btn-lg w-full" %>
+          <div class="badge badge-lg badge-primary text-sm font-medium">
+            <svg class="size-4 mr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Lowest
+          </div>
+        </div>
+
+        <div class="text-xl font-semibold tabular-nums">
+          <%= f.number_field :price, placeholder: "0", required: true, class: "text-right text-xl input input-bordered w-28" %>
+        </div>
+      </div>
+    </div>
+
+    <%= f.submit "Submit bid", class: "btn btn-primary btn-lg w-full" %>
+  <% end %>
 <% end %>

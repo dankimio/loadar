@@ -13,7 +13,7 @@ class BidsController < ApplicationController
     if @bid.save
       redirect_to new_bid_path, notice: "Your bid has been submitted"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
