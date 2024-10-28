@@ -42,4 +42,4 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - [x] Deploy
 - [ ] Add example to README
 - [ ] Add instructions to README
-- [ ] Animate radio inputs
+- [x] Animate radio inputs

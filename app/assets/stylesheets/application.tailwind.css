@@ -54,9 +54,14 @@
 }
 
 .radio-card {
-  @apply p-3 border-2 rounded-lg cursor-pointer font-medium;
+  @apply p-3 border-2 rounded-lg cursor-pointer font-medium transition;
 
   &:has(:checked) {
     @apply border-primary bg-green-50 text-green-900;
+  }
+
+  /* Scale input on click */
+  &:active {
+    @apply transform scale-[0.97];
   }
 }
