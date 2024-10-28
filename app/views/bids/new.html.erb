@@ -12,7 +12,7 @@
 
 <h1 class="h1 mb-6">New bid</h1>
 
-<%= form_with model: @bid, data: { controller: "auto-submit" } do |f| %>
+<%= form_with model: @bid, url: bids_path, method: :post, data: { controller: "auto-submit" } do |f| %>
   <%= f.hidden_field :company_name, value: current_company_name %>
 
   <h2 class="h2 mb-4">Route</h2>
@@ -45,7 +45,7 @@
 <% end %>
 
 <% if @job %>
-  <%= form_with model: @bid do |f| %>
+  <%= form_with model: @bid, url: bids_path, method: :post do |f| %>
     <%= f.hidden_field :company_name, value: @bid.company_name %>
     <%= f.hidden_field :route, value: @bid.route %>
     <%= f.hidden_field :load, value: @bid.load %>
@@ -63,7 +63,7 @@
         <div>
           <% if @job.lowest_bid %>
             <p class="text-xl font-semibold tabular-nums">
-              <%= number_to_currency @job.lowest_bid.price %>
+              <%= number_to_currency @job.lowest_bid.price, precision: 0 %>
             </p>
           <% else %>
             <p class="text-xl font-semibold tabular-nums">No bids yet</p>
@@ -75,14 +75,18 @@
         <div class="flex items-center gap-x-3">
           <p>Your bid</p>
 
-          <div class="badge badge-lg badge-primary text-sm font-medium">
-            <svg class="size-4 mr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Lowest
-          </div>
+          <% if @bid.company_name == @job.lowest_bid&.company_name %>
+            <div class="badge badge-lg badge-primary text-sm font-medium">
+              <svg class="size-4 mr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Lowest
+            </div>
+          <% end %>
         </div>
 
         <div class="text-xl font-semibold tabular-nums">
-          <%= f.number_field :price, placeholder: "0", required: true, class: "text-right text-xl input input-bordered w-28" %>
+          <%= f.number_field :price, value: @job.lowest_bid&.price,
+            placeholder: "0", required: true, step: 0.01,
+            class: "text-right text-xl input input-bordered w-28" %>
         </div>
       </div>
     </div>
