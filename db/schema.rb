@@ -10,5 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_28_164051) do
+  create_table "bids", force: :cascade do |t|
+    t.string "company_name", null: false
+    t.string "route", null: false
+    t.integer "load", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_name", "route", "load"], name: "index_bids_on_company_name_and_route_and_load", unique: true
+    t.index ["company_name"], name: "index_bids_on_company_name"
+    t.index ["load"], name: "index_bids_on_load"
+    t.index ["route"], name: "index_bids_on_route"
+  end
 end
