@@ -12,9 +12,7 @@
 
 <h1 class="h1 mb-6">New bid</h1>
 
-<%= form_with model: @bid, url: bids_path, method: :post, data: { controller: "auto-submit" } do |f| %>
-  <%= f.hidden_field :company_name, value: current_company_name %>
-
+<%= form_with model: @bid, url: new_bid_path, method: :get, data: { controller: "auto-submit" } do |f| %>
   <h2 class="h2 mb-4">Route</h2>
 
   <div class="mb-6 grid grid-cols-2 gap-3">
@@ -46,7 +44,6 @@
 
 <% if @job %>
   <%= form_with model: @bid, url: bids_path, method: :post do |f| %>
-    <%= f.hidden_field :company_name, value: @bid.company_name %>
     <%= f.hidden_field :route, value: @bid.route %>
     <%= f.hidden_field :load, value: @bid.load %>
 
@@ -84,8 +81,8 @@
         </div>
 
         <div class="text-xl font-semibold tabular-nums">
-          <%= f.number_field :price, value: @job.lowest_bid&.price,
-            placeholder: "0", required: true, step: 0.01,
+          <%= f.number_field :price, value: @bid.price,
+            placeholder: @job.lowest_bid&.price, required: true,
             class: "text-right text-xl input input-bordered w-28" %>
         </div>
       </div>
