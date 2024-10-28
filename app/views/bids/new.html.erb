@@ -43,7 +43,7 @@
 <% end %>
 
 <% if @job %>
-  <%= form_with model: @bid, url: bids_path, method: :post do |f| %>
+  <%= form_with model: @bid, url: bids_path do |f| %>
     <%= f.hidden_field :route, value: @bid.route %>
     <%= f.hidden_field :load, value: @bid.load %>
 
@@ -90,7 +90,7 @@
 
         <div class="text-xl font-semibold tabular-nums">
           <%= f.number_field :price, value: @bid.current_bid&.price,
-            placeholder: @job.lowest_bid&.price || 1000, required: true, autofocus: true,
+            placeholder: @job.lowest_bid&.price || 1000, required: true,
             class: "text-right text-xl input input-bordered w-28" %>
         </div>
       </div>
