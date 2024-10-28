@@ -32,5 +32,17 @@
 
       <%= yield %>
     </div>
+
+    <div class="p-4">
+      <% if flash.any? %>
+        <div class="toast toast-end">
+          <% flash.each do |_type, message| %>
+            <div class="alert" data-controller="auto-dismiss">
+              <span><%= message %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </body>
 </html>
