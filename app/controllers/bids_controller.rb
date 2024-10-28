@@ -27,9 +27,8 @@ class BidsController < ApplicationController
   end
 
   def find_bid
-    bid = Bid.find_by(bid_params)
-    bid || Bid.new(bid_params)
-    bid.price = params.fetch(:bid, :price) if bid_params.fetch(:bid, :price)
+    bid = Bid.find_by(bid_params) || Bid.new(bid_params)
+    bid.price = params.dig(:bid, :price) if params.dig(:bid, :price)
     bid
   end
 end

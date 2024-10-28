@@ -18,6 +18,12 @@ class Bid < ApplicationRecord
   end
 
   def current_bid
-    Bid.find_by(route: route, load: load)
+    Bid.find_by(route: route, load: load, company_name: company_name)
+  end
+
+  def winning?
+    return false if new_record?
+
+    self == job.lowest_bid
   end
 end
