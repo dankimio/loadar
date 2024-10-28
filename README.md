@@ -35,7 +35,7 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - [x] Implement the form
 - [x] Create bids
 - [ ] Show current bid
-- [ ] Show if the bid is winning
+- [x] Show if the bid is winning
 - [ ] Lint erb
 - [ ] Mobile first
 - [ ] Add tests

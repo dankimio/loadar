@@ -81,7 +81,7 @@
         </div>
 
         <div class="text-xl font-semibold tabular-nums">
-          <%= f.number_field :price, value: @bid.price,
+          <%= f.number_field :price, value: @bid.current_bid&.price,
             placeholder: @job.lowest_bid&.price, required: true,
             class: "text-right text-xl input input-bordered w-28" %>
         </div>

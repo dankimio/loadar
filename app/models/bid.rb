@@ -16,4 +16,8 @@ class Bid < ApplicationRecord
   def job
     Job.new(route, load) if route && load
   end
+
+  def current_bid
+    Bid.find_by(route: route, load: load)
+  end
 end
