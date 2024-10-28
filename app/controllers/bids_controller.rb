@@ -6,4 +6,8 @@ class BidsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  def create
+    redirect_to new_bid_path, notice: "Your bid has been submitted"
+  end
 end
