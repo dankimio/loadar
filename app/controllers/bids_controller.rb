@@ -4,7 +4,7 @@ class BidsController < ApplicationController
       @bid = Bid.new(bid_params)
       @job = @bid.job
 
-      render :new, status: 303
+      render :new, status: :see_other
     else
       redirect_to new_session_path
     end

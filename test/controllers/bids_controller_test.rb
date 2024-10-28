@@ -9,7 +9,7 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     sign_in_company
     get new_bid_url
-    assert_response :success
+    assert_response :see_other
   end
 
   test "should create bid" do
