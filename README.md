@@ -35,6 +35,7 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - Database initialization: `$ rails db:setup`
 - How to run the test suite: `$ rails test`
 - Deployment instructions: `$ kamal deploy`
+- Run the server: `$ bin/dev`
 
 ## To-do
 
