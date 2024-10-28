@@ -42,3 +42,11 @@
     -moz-appearance: textfield; /* Firefox */
   }
 }
+
+.form-label {
+  @apply block text-sm font-medium text-neutral-700;
+
+  &.form-label-lg {
+    @apply text-base;
+  }
+}
