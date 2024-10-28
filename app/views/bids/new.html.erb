@@ -13,6 +13,8 @@
 <h1 class="h1 mb-6">New bid</h1>
 
 <%= form_with model: @bid do |f| %>
+  <%= f.hidden_field :company_name, value: current_company_name %>
+
   <h2 class="h2 mb-4">Route</h2>
 
   <div class="mb-6 grid grid-cols-2 gap-3">
