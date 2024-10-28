@@ -3,6 +3,8 @@ class BidsController < ApplicationController
     if current_company_name
       @bid = Bid.new(bid_params)
       @job = @bid.job
+
+      render :new, status: 303
     else
       redirect_to new_session_path
     end
