@@ -8,7 +8,13 @@ class BidsController < ApplicationController
   end
 
   def create
-    redirect_to new_bid_path, notice: "Your bid has been submitted"
+    @bid = Bid.new(bid_params)
+
+    if @bid.save
+      redirect_to new_bid_path, notice: "Your bid has been submitted"
+    else
+      render :new
+    end
   end
 
   private
