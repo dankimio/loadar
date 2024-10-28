@@ -23,12 +23,13 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.fetch(:bid, {}).permit(:route, :load, :price).merge(company_name: current_company_name)
+    params.fetch(:bid, {}).permit(:route, :load).merge(company_name: current_company_name)
   end
 
   def find_bid
-    bid = Bid.find_by(company_name: current_company_name, route: bid_params[:route], load: bid_params[:load])
-    bid.price = bid_params[:price] if bid && bid_params[:price]
+    bid = Bid.find_by(bid_params)
     bid || Bid.new(bid_params)
+    bid.price = params.fetch(:bid, :price) if bid_params.fetch(:bid, :price)
+    bid
   end
 end
