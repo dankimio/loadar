@@ -24,6 +24,8 @@
   @apply text-base font-bold;
 }
 
+/* Forms */
+
 .input-bordered {
   @apply border-2;
 
@@ -48,5 +50,13 @@
 
   &.form-label-lg {
     @apply text-base;
+  }
+}
+
+.radio-card {
+  @apply p-3 border-2 rounded-lg cursor-pointer font-medium;
+
+  &:has(:checked) {
+    @apply border-primary bg-green-50 text-green-900;
   }
 }
