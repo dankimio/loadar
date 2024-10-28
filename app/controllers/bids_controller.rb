@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
   def new
-    if current_company
-      # @bid = Bid.new
+    if current_company_name
+      @bid = Bid.new(company_name: current_company_name)
     else
       redirect_to new_session_path
     end

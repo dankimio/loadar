@@ -3,7 +3,7 @@
 <%= form_with url: sessions_path do |f| %>
   <div class="mb-6 space-y-2">
     <%= f.label :company_name, class: "form-label form-label-lg" %>
-    <%= f.text_field :company_name, value: current_company, autofocus: true, required: true, placeholder: "Acme Corporation",
+    <%= f.text_field :company_name, value: current_company_name, autofocus: true, required: true, placeholder: "Acme Corporation",
       class: "input input-bordered input-lg w-full" %>
   </div>
 
