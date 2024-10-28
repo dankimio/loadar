@@ -1,5 +1,7 @@
 # Loadar
 
+https://github.com/user-attachments/assets/685e93de-5621-44ea-a08f-b98492c64c81
+
 **Problem:** A shipper wants to get the best price for the delivery of goods on his delivery routes from his carriers.
 
 Create a simple Ruby on Rails app for carriers to submit their prices for the delivery of goods from A to B (see “List of Routes”) with given load types (see “List of Load Types”). Each route has 3 load types, so in total, carriers can submit 12 different prices for each route/load combination.
