@@ -30,4 +30,15 @@
   &:focus {
     @apply outline-none border-primary;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
 }
