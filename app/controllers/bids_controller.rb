@@ -10,4 +10,10 @@ class BidsController < ApplicationController
   def create
     redirect_to new_bid_path, notice: "Your bid has been submitted"
   end
+
+  private
+
+  def bid_params
+    params.require(:bid).permit(:company_name, :route, :load, :price)
+  end
 end
