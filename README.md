@@ -24,6 +24,14 @@ Create a simple Ruby on Rails app for carriers to submit their prices for the de
 - A simple and intuitive UI/UX is important for carriers to submit their prices efficiently and review the results of their bidding process (for example, to see if they are winning or not).
 Please send your Rails app as a .zip archive via email, or share a link to a public GitHub repository containing the Rails app.
 
+## Setup
+
+- Ruby version: see `.ruby-version`
+- System dependencies: `$ brew install sqlite`
+- Database initialization: `$ rails db:setup`
+- How to run the test suite: `$ rails test`
+- Deployment instructions: `$ kamal deploy`
+
 ## To-do
 
 - [x] Generate the app
@@ -36,10 +44,9 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - [x] Create bids
 - [x] Show current bid
 - [x] Show if the bid is winning
-- [ ] Lint erb
 - [x] Mobile first
 - [ ] Add tests
 - [x] Deploy
 - [ ] Add example to README
-- [ ] Add instructions to README
+- [x] Add instructions to README
 - [x] Animate radio inputs
