@@ -49,6 +49,6 @@ Please send your Rails app as a .zip archive via email, or share a link to a pub
 - [x] Mobile first
 - [x] Add tests
 - [x] Deploy
-- [ ] Add example to README
+- [x] Add example to README
 - [x] Add instructions to README
 - [x] Animate radio inputs
