@@ -1,7 +1,8 @@
 class BidsController < ApplicationController
   def new
     if current_company_name
-      @bid = Bid.new(company_name: current_company_name)
+      @bid = Bid.new(company_name: current_company_name, route: params[:route], load: params[:load])
+      @job = @bid.job
     else
       redirect_to new_session_path
     end
@@ -9,9 +10,10 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
+    @job = @bid.job
 
     if @bid.save
-      redirect_to new_bid_path, notice: "Your bid has been submitted"
+      redirect_to new_bid_path(route: @bid.route, load: @bid.load), notice: "Your bid has been submitted"
     else
       render :new, status: :unprocessable_entity
     end

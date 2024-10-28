@@ -12,4 +12,8 @@ class Bid < ApplicationRecord
   validates :route, presence: true, inclusion: { in: ROUTES.keys }
   validates :load, presence: true, inclusion: { in: LOADS }
   validates :price, presence: true, numericality: { greater_than: 0 }
+
+  def job
+    Job.new(route, load) if route && load
+  end
 end

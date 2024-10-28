@@ -44,8 +44,12 @@
   </div>
 <% end %>
 
-<% if @bid.route && @bid.load %>
+<% if @job %>
   <%= form_with model: @bid do |f| %>
+    <%= f.hidden_field :company_name, value: @bid.company_name %>
+    <%= f.hidden_field :route, value: @bid.route %>
+    <%= f.hidden_field :load, value: @bid.load %>
+
     <div class="mb-4 flex items-center">
       <h2 class="h2 mr-3">Bid</h2>
       <div class="badge badge-lg badge-outline badge-neutral border-neutral-300 text-sm font-medium">
@@ -57,7 +61,13 @@
       <div class="flex justify-between items-center text-lg">
         <p>Lowest bid</p>
         <div>
-          <p class="text-xl font-semibold tabular-nums">$1,000</p>
+          <% if @job.lowest_bid %>
+            <p class="text-xl font-semibold tabular-nums">
+              <%= number_to_currency @job.lowest_bid.price %>
+            </p>
+          <% else %>
+            <p class="text-xl font-semibold tabular-nums">No bids yet</p>
+          <% end %>
         </div>
       </div>
 
